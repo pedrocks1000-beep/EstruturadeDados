@@ -8,7 +8,8 @@ public class Principal{
         pilha.push("Java");
         pilha.push("Python");
         pilha.push("HTML");
-
+        pilha.imprimePilha();
+        
         pilha.pop();
 
         pilha.imprimePilha();
