@@ -1,4 +1,5 @@
 package Fila;
+
 public class Fila<T>{
     private String nomeFila;
     private No<T> primeiroNo;
@@ -35,7 +36,7 @@ public class Fila<T>{
         primeiroNo = primeiroNo.getNextNo();
 
         if(primeiroNo == null){
-            ultimoNo = primeiroNo;
+            ultimoNo = null;
         }
         return dado;
     }
@@ -44,6 +45,7 @@ public class Fila<T>{
         if(primeiroNo == null){
             System.out.println("Fila vazia!");
         }else{
+            System.out.println("Dados da Fila: " + nomeFila);
             No<T> aux = primeiroNo;
             while (aux != null) {
                 System.out.println("Dado: " + aux.toString());

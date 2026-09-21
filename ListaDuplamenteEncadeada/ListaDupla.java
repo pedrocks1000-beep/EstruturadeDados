@@ -1,12 +1,10 @@
 package ListaDuplamenteEncadeada;
+
 public class ListaDupla<T>{
     private String nomeLista;
     private int tamanho;
     private NoDuplo<T> primeiroNo;
     private NoDuplo<T> ultimoNo;
-    private Double Preco;
-    
-
 
     public ListaDupla(){
         this("Lista Dupla");
@@ -17,7 +15,6 @@ public class ListaDupla<T>{
         this.tamanho = 0;
         this.primeiroNo = null;
         this.ultimoNo = null;
-        
     }
 
     public void addInicio(T dado){
@@ -31,8 +28,8 @@ public class ListaDupla<T>{
             primeiroNo.setAnteriorNo(novoNo);
             primeiroNo = novoNo;
         }
-        atualizaIndice();
         tamanho++;
+        atualizaIndice();
     }
 
     public T removeInicio(){
@@ -48,12 +45,12 @@ public class ListaDupla<T>{
             }else{
                 ultimoNo = null;
             }
-            atualizaIndice();
             tamanho--;
+            atualizaIndice();
             return dadoTemp;
         }
     }
-    
+
     public void addMeio(T dado, int posicao){
         if(posicao <= 0){
             addInicio(dado);
@@ -69,7 +66,7 @@ public class ListaDupla<T>{
         NoDuplo<T> atual = primeiroNo;
         int indice = 0;
 
-        while (atual != null && indice < posicao) { 
+        while (atual != null && indice < posicao) {
             atual = atual.getProximoNo();
             indice++;
         }
@@ -78,38 +75,34 @@ public class ListaDupla<T>{
         novoNo.setAnteriorNo(atual.getAnteriorNo());
         novoNo.getAnteriorNo().setProximoNo(novoNo);
         novoNo.getProximoNo().setAnteriorNo(novoNo);
+        tamanho++;
         atualizaIndice();
-        tamanho++;    
     }
 
     public T removeMeio(int posicao){
-        T dadoTemp;
         if(posicao <= 0){
-            dadoTemp = removeInicio();
-            return dadoTemp;
+            return removeInicio();
         }
 
-        if(posicao >= tamanho-1){
-            dadoTemp = removeFinal();
-            return dadoTemp;
+        if(posicao >= tamanho - 1){
+            return removeFinal();
         }
 
         NoDuplo<T> atual = primeiroNo;
         int indice = 0;
 
-        while (atual != null && indice < posicao) { 
+        while (atual != null && indice < posicao) {
             atual = atual.getProximoNo();
             indice++;
         }
 
-        dadoTemp = atual.getDado();
+        T dadoTemp = atual.getDado();
         atual.getProximoNo().setAnteriorNo(atual.getAnteriorNo());
         atual.getAnteriorNo().setProximoNo(atual.getProximoNo());
 
-        atualizaIndice();
         tamanho--;
+        atualizaIndice();
         return dadoTemp;
-
     }
 
     public T removeFinal(){
@@ -139,9 +132,7 @@ public class ListaDupla<T>{
             ultimoNo.setProximoNo(novoNo);
             ultimoNo = novoNo;
         }
-        ultimoNo.setIndice(tamanho);        
-        //novoNo.setIndice(tamanho);
-        //atualizaIndice();
+        ultimoNo.setIndice(tamanho);
         tamanho++;
     }
 
@@ -151,7 +142,7 @@ public class ListaDupla<T>{
         }else{
             System.out.println("Dados da Lista: " + nomeLista);
             NoDuplo<T> aux = primeiroNo;
-            while (aux != null) { 
+            while (aux != null) {
                 System.out.printf("%s ", aux.toString());
                 aux = aux.getProximoNo();
             }
@@ -162,15 +153,28 @@ public class ListaDupla<T>{
     public void atualizaIndice(){
         NoDuplo<T> atual = primeiroNo;
         int indice = 0;
-        while (atual != null) { 
+        while (atual != null) {
             atual.setIndice(indice);
             atual = atual.getProximoNo();
             indice++;
         }
     }
 
+    public int getTamanho(){
+        return this.tamanho;
+    }
+
     @Override
     public String toString() {
-        return super.toString();
+        StringBuilder sb = new StringBuilder(nomeLista + ": [");
+        NoDuplo<T> aux = primeiroNo;
+        while (aux != null) {
+            sb.append(aux.toString());
+            if(aux.getProximoNo() != null){
+                sb.append(", ");
+            }
+            aux = aux.getProximoNo();
+        }
+        return sb.append("]").toString();
     }
 }

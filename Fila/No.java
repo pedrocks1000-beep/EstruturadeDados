@@ -4,15 +4,15 @@ public class No<T>{
     private T dado;
     private No<T> nextNo;
 
-    public  No(){
+    public No(){
         this(null, null);
     }
 
-    public  No(T dado){
+    public No(T dado){
         this(dado, null);
     }
 
-    public No(T dado, No<T> nextno){
+    public No(T dado, No<T> nextNo){
         this.dado = dado;
         this.nextNo = nextNo;
     }
@@ -31,5 +31,10 @@ public class No<T>{
 
     public No<T> getNextNo(){
         return this.nextNo;
+    }
+
+    @Override
+    public String toString(){
+        return String.valueOf(dado);
     }
 }

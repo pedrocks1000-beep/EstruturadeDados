@@ -47,7 +47,7 @@ public class Pilha<T>{
         return topo.getDado();
     }
 
-    public String imprimePilha(){
+    public void imprimePilha(){
         No<T> aux = topo;
 
         while (aux != null) {
