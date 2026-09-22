@@ -30,6 +30,6 @@ public class Produto {
 
     @Override
     public String toString(){
-        return nome + getNome() + "Preço:" + preco;
+        return "{nome: "+ getNome() + "Preço:" + getPreco() + "}"; 
     }
 }
