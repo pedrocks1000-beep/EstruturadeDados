@@ -177,4 +177,5 @@ public class ListaDupla<T>{
         }
         return sb.append("]").toString();
     }
+
 }

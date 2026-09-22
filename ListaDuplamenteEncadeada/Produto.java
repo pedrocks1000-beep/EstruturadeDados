@@ -5,9 +5,19 @@ public class Produto {
     private String nome;
     private double preco;
 
+    public Produto(){
+        this("",0);
+    }
+    
     public Produto(String nome, double preco){
         this.nome = nome;
         this.preco = preco;
+    }
+    public void setPreco(){
+        this.preco = preco;
+    }
+    public void setNome(){
+        this.nome = nome;
     }
 
     public String getNome(){
@@ -20,6 +30,6 @@ public class Produto {
 
     @Override
     public String toString(){
-        return nome + " - R$ " + preco;
+        return nome + getNome() + "Preço:" + preco;
     }
 }

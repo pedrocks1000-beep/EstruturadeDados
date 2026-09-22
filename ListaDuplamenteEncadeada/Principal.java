@@ -4,10 +4,15 @@ public class Principal {
     public static void main(String[] args){
         ListaDupla<Produto> lista 
         = new ListaDupla<Produto>("Produtos");
-
-        lista.addInicio(new Produto("Teclado", 120.00));   
-        lista.addFinal(new Produto("Mouse", 60.50));       
-        lista.addMeio(new Produto("Monitor", 800.00), 1);  
+        Produto p1 = new Produto("nome",900);
+        Produto p2 = new Produto( "Mouse", 60.50);
+        Produto p3 = new Produto("Monitor", 800.00);
+        Produto p4 = new Produto("Arma Biologica", 10000);
+        Produto p5 = new Produto("Robo", 20000);
+        
+        lista.addInicio(p1);   
+        lista.addFinal(p2);       
+        lista.addMeio(p3,1);  
 
         System.out.println("Lista inicial ");
         lista.imprimeLista();
@@ -16,8 +21,8 @@ public class Principal {
         System.out.println("removido:");
         System.out.println(removido);
 
-        lista.addInicio(new Produto("Notebook", 3500.00));
-        lista.addFinal(new Produto("Webcam", 250.00));
+        lista.addInicio(p4);
+        lista.addFinal(p5);
 
         System.out.println(" Lista final");
         lista.imprimeLista();
