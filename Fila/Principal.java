@@ -11,12 +11,12 @@ public class Principal{
         fila.imprimeFila();
 
         System.out.println(" Aluno removido ");
-        System.out.println(fila.desenfileirar());
+        System.out.println("Aluno removido foi :" + fila.desenfileirar());
 
         fila.enfileirar("Roberta");
         fila.enfileirar("Laiane");
 
-        System.out.println("Fila final ");
+        System.out.println("Fila final :");
         fila.imprimeFila();
     }
 }
