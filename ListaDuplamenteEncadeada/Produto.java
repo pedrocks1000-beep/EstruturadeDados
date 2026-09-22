@@ -13,12 +13,12 @@ public class Produto {
         this.nome = nome;
         this.preco = preco;
     }
-    public void setPreco(){
-        this.preco = preco;
-    }
-    public void setNome(){
-        this.nome = nome;
-    }
+    public void setPreco(double preco){
+    this.preco = preco;
+}
+    public void setNome(String nome){
+    this.nome = nome;
+}
 
     public String getNome(){
         return nome;
@@ -30,6 +30,7 @@ public class Produto {
 
     @Override
     public String toString(){
-        return "{nome: "+ getNome() + "Preço:" + getPreco() + "}"; 
+        return "{nome:" + getNome()+ "}" +
+                "{Preço:" + getPreco() + "}"; 
     }
 }

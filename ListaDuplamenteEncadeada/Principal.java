@@ -4,7 +4,7 @@ public class Principal {
     public static void main(String[] args){
         ListaDupla<Produto> lista 
         = new ListaDupla<Produto>("Produtos");
-        Produto p1 = new Produto("nome",900);
+        Produto p1 = new Produto("Chuteira",900);
         Produto p2 = new Produto( "Mouse", 60.50);
         Produto p3 = new Produto("Monitor", 800.00);
         Produto p4 = new Produto("Arma Biologica", 10000);
